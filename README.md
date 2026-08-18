@@ -1,6 +1,7 @@
 # E-commerce Recommendation System
 
 A web application that displays user profiles and product listings, with the ability to track user purchases for future machine learning recommendations using TensorFlow.js.
+![demo](./demo.png)
 
 ## Project Structure
 
