@@ -14,7 +14,7 @@
         "recommendation",
         "javascript"
     ],
-    "author": "",
+    "author": "igorromero",
     "license": "ISC",
     "devDependencies": {
         "browser-sync": "^3.0.4"
