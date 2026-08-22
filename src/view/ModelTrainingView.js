@@ -55,7 +55,7 @@ export class ModelView extends View {
 
         if (progress.progress === 100) {
             this.#trainModelBtn.disabled = false;
-            this.#trainModelBtn.innerHTML = 'Train Recommendation Model';
+            this.#trainModelBtn.innerHTML = '<i class="bi bi-cpu"></i> Train Model';
         }
     }
 

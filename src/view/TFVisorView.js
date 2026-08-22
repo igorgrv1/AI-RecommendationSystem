@@ -1,34 +1,26 @@
 import { View } from './View.js';
 
 export class TFVisorView extends View {
-    #weights = null;
-    #catalog = [];
-    #users = [];
     #logs = [];
     #lossPoints = [];
     #accPoints = [];
+    #isVisOpen = false;
     constructor() {
         super();
-
-        tfvis.visor().open();
     }
 
-    renderData(data) {
-
-        this.#weights = data.weights;
-        this.#catalog = data.catalog;
-        this.#users = data.users;
-    }
     resetDashboard() {
-        this.#weights = null;
-        this.#catalog = [];
-        this.#users = [];
         this.#logs = [];
         this.#lossPoints = [];
         this.#accPoints = [];
     }
 
     handleTrainingLog(log) {
+        if (!this.#isVisOpen) {
+            tfvis.visor().open();
+            this.#isVisOpen = true;
+        }
+
         const { epoch, loss, accuracy } = log;
         this.#lossPoints.push({ x: epoch, y: loss });
         this.#accPoints.push({ x: epoch, y: accuracy });
@@ -63,8 +55,5 @@ export class TFVisorView extends View {
         );
 
     }
-
-
-
 
 }
